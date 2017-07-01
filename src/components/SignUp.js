@@ -2,52 +2,24 @@
 import React from 'react'
 import { signUp } from '../api/auth'
 
-export default class SignUp extends React.Component {
-  state: {
-    email: string,
-    password: string
-  }
-
-  constructor(props: any) {
-    super(props)
-    this.state = {
-      email: '',
-      password: ''
-    }
-  }
-
-  handleEmailChange(e: any) {
-    this.setState({ email: e.target.value })
-  }
-
-  handlePasswordChange(e: any) {
-    this.setState({ password: e.target.value })
-  }
-
-  handleSubmit(e: any) {
-    e.preventDefault()
-    const email = this.state.email.trim()
-    const password = this.state.password.trim()
-    signUp(email, password)
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <input
-          type="text"
-          value={this.state.email}
-          placeholder="Email"
-          onChange={this.handleEmailChange.bind(this)}
-        />
-        <input
-          type="password"
-          value={this.state.password}
-          placeholder="Password"
-          onChange={this.handlePasswordChange.bind(this)}
-        />
-        <input type="submit" value="register" />
-      </form>
-    )
-  }
+export default function SignUp() {
+  let emailRef, passwordRef
+  return (
+    <form
+      onSubmit={ev => {
+        ev.preventDefault()
+        const email = emailRef.value.trim()
+        const password = passwordRef.value.trim()
+        signUp(email, password)
+      }}
+    >
+      <input ref={ref => (emailRef = ref)} type="text" placeholder="Email" />
+      <input
+        ref={ref => (passwordRef = ref)}
+        type="password"
+        placeholder="Password"
+      />
+      <input type="submit" value="sign in" />
+    </form>
+  )
 }
