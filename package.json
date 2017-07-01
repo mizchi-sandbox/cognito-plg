@@ -5,10 +5,14 @@
   "license": "MIT",
   "devDependencies": {
     "amazon-cognito-identity-js": "^1.19.0",
+    "aws-sdk": "^2.80.0",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.5.2",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+    "eslint": "^4.1.1",
+    "eslint-config-mizchi": "^1.1.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "webpack": "^3.0.0"
